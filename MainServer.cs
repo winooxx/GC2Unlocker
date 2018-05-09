@@ -16,8 +16,8 @@ namespace GC2Toolkit
         string TuneFilePakAdd = "";
         string SkinPakAdd = "";
 
-        public int MaxStage = 400;
-        public int MaxAvater = 90;
+        public int MaxStage = 500;
+        public int MaxAvater = 86;
 
 		private string CacheFolder = "Caches\\";
 		private bool nonWindows = false;
@@ -42,7 +42,7 @@ namespace GC2Toolkit
             }
             catch(Exception e)
             {
-                Console.WriteLine("Binded to port 80 failed.");
+                Console.WriteLine("Can't bind port 80.");
                 throw e;
             }
         }
@@ -50,14 +50,14 @@ namespace GC2Toolkit
         public void ResetTimer()
         {
             ItemGetCount = 1;
-            Console.WriteLine("Login timer reseted to Day 1.");
+            Console.WriteLine("Login timer has been reset to Day 1.");
             Console.Title = "GC2 FullUnlock Toolkit | Login Day:" + ItemGetCount.ToString();
         }
 
         public void SetTimer(int Day)
         {
             ItemGetCount = Day;
-            Console.WriteLine("Login timer set to Day " + Day.ToString());
+            Console.WriteLine("Login timer has been set to Day " + Day.ToString());
             Console.Title = "GC2 FullUnlock Toolkit | Login Day:" + ItemGetCount.ToString();
         }
 
@@ -139,7 +139,7 @@ namespace GC2Toolkit
                 {
                     PakDownloader(ModelPakAdd, CacheFolder + PakFilename[PakFilename.Length - 1], PakFilename[PakFilename.Length - 1]);
                 }
-                else Console.WriteLine("Pak already up-to-date:" + PakFilename[PakFilename.Length - 1]);
+                else Console.WriteLine("Pak is already up-to-date:" + PakFilename[PakFilename.Length - 1]);
             }
         }
 
@@ -217,7 +217,7 @@ namespace GC2Toolkit
                 ServerRequest.GetRequestStream().Write(Input, 0, Input.Length);
             }
 
-            Console.WriteLine("Getting response from game server:" + ReqFile);
+            Console.WriteLine("Getting response from game server: " + ReqFile);
             HttpWebResponse ServerResponse;
             try
             {
@@ -250,7 +250,7 @@ namespace GC2Toolkit
 
                     if (!Directory.Exists(DirectoryData))
                     {
-                        Console.WriteLine("Creating directory:" + DirectoryData);
+                        Console.WriteLine("Creating directory: " + DirectoryData);
 						Directory.CreateDirectory(CacheFolder+DirectoryData);
                     }
                 }

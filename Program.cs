@@ -8,7 +8,7 @@ namespace GC2Toolkit
 {
     class Program
     {
-        static string Version = "Build 20170501_BemaniCN_Final";
+        static string Version = "Build 2018050900";
         static void Main(string[] args)
         {
             IPAddress[] addressList = Dns.GetHostAddresses(Dns.GetHostName());
@@ -33,8 +33,9 @@ namespace GC2Toolkit
             }
             Console.Title = "GC2 FullUnlock Toolkit | " + Version;
             Console.WriteLine("GC2 FullUnlock Toolkit Online.");
-
+            Console.WriteLine("-------------");
             Console.WriteLine("Set gc2.gczero.com to following address in hosts to get started.");
+            Console.WriteLine("Or setup the client HTTP proxy to following address with port 80");
             foreach (var address in addressList)
             {
                 Console.WriteLine(address);
@@ -42,11 +43,10 @@ namespace GC2Toolkit
             }
             Console.WriteLine("-------------");
             
-            //Console.WriteLine("Enter tutorial to get detail.");
             while (true)
             {
-                Console.WriteLine("\nCurrent SongSlot:" + Listener.MaxStage + ",AvaterSlot:" + Listener.MaxAvater);
-                Console.WriteLine("Enter help for command detail.");
+                Console.WriteLine("\nCurrent SongSlot: " + Listener.MaxStage + ",AvaterSlot: " + Listener.MaxAvater);
+                Console.WriteLine("Enter ”help“ for command detail.");
                 Console.Write("GC2Toolkit>");
                 string Input = Console.ReadLine();
                 if (Input == "exit") Environment.Exit(0);
@@ -64,27 +64,27 @@ namespace GC2Toolkit
         static void Help()
         {
             Console.WriteLine("------\nCommand line help:");
-            Console.WriteLine("exit:Exit this tool.");
-            Console.WriteLine("reset:Reset login timer to Day 1.");
-            Console.WriteLine("set:Set login timer to day you want.");
-            Console.WriteLine("clear:Clear screen.");
-            Console.WriteLine("songcount:Set song slot to be inserted(Default:400)");
-            Console.WriteLine("avatercount:Set avater slot to be inserted(Default:86)");
-            Console.WriteLine("default:Restore to default settings.\n------");
+            Console.WriteLine("exit: Exit this tool.");
+            Console.WriteLine("reset: Reset login timer to Day 1.");
+            Console.WriteLine("set: Set login timer to day you want.");
+            Console.WriteLine("clear: Clear screen.");
+            Console.WriteLine("songcount: Set song slot to be inserted(Default: 500)");
+            Console.WriteLine("avatercount: Set avater slot to be inserted(Default: 86)");
+            Console.WriteLine("default: Restore to default settings.\n------");
         }
 
         static void SetAvater(MainServer ToSet)
         {
-            Console.WriteLine("Caution: too many avater slot will cause game crash!");
-            Console.Write("How many avater you want to insert(Default & Tested:90) :");
+            Console.WriteLine("Warning: too many avater slot may cause game crash!");
+            Console.Write("How many avater would you like to insert (Default & Tested: 86) :");
             while (true)
             {
                 try
                 {
                     int NewAvaterCount = int.Parse(Console.ReadLine());
                     ToSet.MaxAvater = NewAvaterCount;
-                    Console.Write("Avater slot has updated to " + NewAvaterCount.ToString());
-                    Console.WriteLine("Restart game to take effect.");
+                    Console.WriteLine("Avater slot has updated to " + NewAvaterCount.ToString());
+                    Console.WriteLine("Reboot game to take effect.");
                     return;
                 }
                 catch
@@ -97,16 +97,16 @@ namespace GC2Toolkit
 
         static void SetSong(MainServer ToSet)
         {
-            Console.WriteLine("Caution: too many song slot will cause game crash!");
-            Console.Write("How many song you want to insert(Default & Tested:400) :");
+            Console.WriteLine("Warning: too many song slot may cause game crash!");
+            Console.Write("How many song would you like to insert(Default & Tested: 500) :");
             while (true)
             {
                 try
                 {
-                    int NewAvaterCount = int.Parse(Console.ReadLine());
-                    ToSet.MaxAvater = NewAvaterCount;
-                    Console.Write("Song slot has updated to " + NewAvaterCount.ToString());
-                    Console.WriteLine(",restart game to take effect.");
+                    int NewSongCount = int.Parse(Console.ReadLine());
+                    ToSet.MaxStage = NewSongCount;
+                    Console.WriteLine("Song slot has updated to " + NewSongCount.ToString());
+                    Console.WriteLine("Reboot game to take effect.");
                     Console.ReadLine();
                     return;
                 }
@@ -127,12 +127,19 @@ namespace GC2Toolkit
 
         static void SetTimer(MainServer ToSet)
         {
-            Console.WriteLine("Current Day:" + ToSet.ItemGetCount.ToString() + "\n--------");
-            Console.WriteLine("Which day matches you?");
-            Console.WriteLine("Day 1:Follow/Day 2:Groove+/Day 3:Change/Day 4:Visible");
-            Console.WriteLine("Day 5:Mirror/Day 6:Just/Day 7:Hidden/Day 8:Sudden");
-            Console.WriteLine("Day 9:Stealth/Day 10:No Way\n--------");
-            Console.WriteLine("Ps:Song in last 5 days is already unlocked.");
+            Console.WriteLine("Current Login Day:" + ToSet.ItemGetCount.ToString() + "\n--------");
+            Console.WriteLine("Which day would you like to set?");
+            Console.WriteLine("Day 1: Follow");
+            Console.WriteLine("Day 2: Groove+");
+            Console.WriteLine("Day 3: Change");
+            Console.WriteLine("Day 4: Visible");
+            Console.WriteLine("Day 5: Mirror");
+            Console.WriteLine("Day 6: Just");
+            Console.WriteLine("Day 7: Hiddden");
+            Console.WriteLine("Day 8: Sudden");
+            Console.WriteLine("Day 9: Stealth");
+            Console.WriteLine("Day 10: No Way\n--------");
+            Console.WriteLine("Ps: Song in last 5 days is already unlocked.");
             
             while (true)
             {
@@ -145,7 +152,7 @@ namespace GC2Toolkit
                 }
                 catch
                 {
-                    Console.WriteLine("Input error.Please try again.");
+                    Console.WriteLine("Wrong input. Please try again.");
                 }
             }
             
