@@ -31,9 +31,9 @@ namespace GC2Toolkit
                 Console.ReadLine();
                 return;
             }
-            Console.Title = "GC2 FullUnlock Toolkit | " + Version;
-            Console.WriteLine("GC2 FullUnlock Toolkit Online.");
-
+            Console.Title = "C2 FullUnlock Toolkit | " + Version;
+            Console.WriteLine("C2 FullUnlock Toolkit Online.");
+            Console.WriteLine("-------------");
             Console.WriteLine("Set gc2.gczero.com to following address in hosts to get started.");
             Console.WriteLine("Or setup the client HTTP proxy to following address with port 80");
             foreach (var address in addressList)
@@ -83,7 +83,7 @@ namespace GC2Toolkit
                 {
                     int NewAvaterCount = int.Parse(Console.ReadLine());
                     ToSet.MaxAvater = NewAvaterCount;
-                    Console.Write("Avater slot has updated to " + NewAvaterCount.ToString());
+                    Console.WriteLine("Avater slot has updated to " + NewAvaterCount.ToString());
                     Console.WriteLine("Reboot game to take effect.");
                     return;
                 }
@@ -105,7 +105,7 @@ namespace GC2Toolkit
                 {
                     int NewSongCount = int.Parse(Console.ReadLine());
                     ToSet.MaxStage = NewSongCount;
-                    Console.Write("Song slot has updated to " + NewSongCount.ToString());
+                    Console.WriteLine("Song slot has updated to " + NewSongCount.ToString());
                     Console.WriteLine("Reboot game to take effect.");
                     Console.ReadLine();
                     return;
