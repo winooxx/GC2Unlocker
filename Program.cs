@@ -8,7 +8,7 @@ namespace GC2Toolkit
 {
     class Program
     {
-        static string Version = "Build 20180509_Modified";
+        static string Version = "Build 2018050900";
         static void Main(string[] args)
         {
             IPAddress[] addressList = Dns.GetHostAddresses(Dns.GetHostName());
@@ -31,8 +31,8 @@ namespace GC2Toolkit
                 Console.ReadLine();
                 return;
             }
-            Console.Title = "C2 FullUnlock Toolkit | " + Version;
-            Console.WriteLine("C2 FullUnlock Toolkit Online.");
+            Console.Title = "GC2 FullUnlock Toolkit | " + Version;
+            Console.WriteLine("GC2 FullUnlock Toolkit Online.");
             Console.WriteLine("-------------");
             Console.WriteLine("Set gc2.gczero.com to following address in hosts to get started.");
             Console.WriteLine("Or setup the client HTTP proxy to following address with port 80");
@@ -68,8 +68,8 @@ namespace GC2Toolkit
             Console.WriteLine("reset: Reset login timer to Day 1.");
             Console.WriteLine("set: Set login timer to day you want.");
             Console.WriteLine("clear: Clear screen.");
-            Console.WriteLine("songcount: Set song slot to be inserted(Default:400)");
-            Console.WriteLine("avatercount: Set avater slot to be inserted(Default:86)");
+            Console.WriteLine("songcount: Set song slot to be inserted(Default: 500)");
+            Console.WriteLine("avatercount: Set avater slot to be inserted(Default: 86)");
             Console.WriteLine("default: Restore to default settings.\n------");
         }
 
@@ -98,7 +98,7 @@ namespace GC2Toolkit
         static void SetSong(MainServer ToSet)
         {
             Console.WriteLine("Warning: too many song slot may cause game crash!");
-            Console.Write("How many song would you like to insert(Default & Tested: 400) :");
+            Console.Write("How many song would you like to insert(Default & Tested: 500) :");
             while (true)
             {
                 try

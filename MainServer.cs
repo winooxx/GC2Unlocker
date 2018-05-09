@@ -16,7 +16,7 @@ namespace GC2Toolkit
         string TuneFilePakAdd = "";
         string SkinPakAdd = "";
 
-        public int MaxStage = 400;
+        public int MaxStage = 500;
         public int MaxAvater = 86;
 
 		private string CacheFolder = "Caches\\";
