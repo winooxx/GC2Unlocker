@@ -42,7 +42,7 @@ namespace GC2Toolkit
             }
             catch(Exception e)
             {
-                Console.WriteLine("Binded to port 80 failed.");
+                Console.WriteLine("Can't bind port 80.");
                 throw e;
             }
         }
@@ -50,14 +50,14 @@ namespace GC2Toolkit
         public void ResetTimer()
         {
             ItemGetCount = 1;
-            Console.WriteLine("Login timer reseted to Day 1.");
+            Console.WriteLine("Login timer has been reset to Day 1.");
             Console.Title = "GC2 FullUnlock Toolkit | Login Day:" + ItemGetCount.ToString();
         }
 
         public void SetTimer(int Day)
         {
             ItemGetCount = Day;
-            Console.WriteLine("Login timer set to Day " + Day.ToString());
+            Console.WriteLine("Login timer has been set to Day " + Day.ToString());
             Console.Title = "GC2 FullUnlock Toolkit | Login Day:" + ItemGetCount.ToString();
         }
 
