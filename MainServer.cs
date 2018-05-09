@@ -17,7 +17,7 @@ namespace GC2Toolkit
         string SkinPakAdd = "";
 
         public int MaxStage = 400;
-        public int MaxAvater = 90;
+        public int MaxAvater = 86;
 
 		private string CacheFolder = "Caches\\";
 		private bool nonWindows = false;
@@ -139,7 +139,7 @@ namespace GC2Toolkit
                 {
                     PakDownloader(ModelPakAdd, CacheFolder + PakFilename[PakFilename.Length - 1], PakFilename[PakFilename.Length - 1]);
                 }
-                else Console.WriteLine("Pak already up-to-date:" + PakFilename[PakFilename.Length - 1]);
+                else Console.WriteLine("Pak is already up-to-date:" + PakFilename[PakFilename.Length - 1]);
             }
         }
 
@@ -217,7 +217,7 @@ namespace GC2Toolkit
                 ServerRequest.GetRequestStream().Write(Input, 0, Input.Length);
             }
 
-            Console.WriteLine("Getting response from game server:" + ReqFile);
+            Console.WriteLine("Getting response from game server: " + ReqFile);
             HttpWebResponse ServerResponse;
             try
             {
@@ -250,7 +250,7 @@ namespace GC2Toolkit
 
                     if (!Directory.Exists(DirectoryData))
                     {
-                        Console.WriteLine("Creating directory:" + DirectoryData);
+                        Console.WriteLine("Creating directory: " + DirectoryData);
 						Directory.CreateDirectory(CacheFolder+DirectoryData);
                     }
                 }
